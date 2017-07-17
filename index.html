@@ -7,13 +7,17 @@
 		<link rel="stylesheet" href="node_modules/todomvc-common/base.css">
 		<link rel="stylesheet" href="node_modules/todomvc-app-css/index.css">
 		<!-- CSS overrides - remove if you don't need it -->
-		<link rel="stylesheet" href="css/app.css">
+		<!--<link rel="stylesheet" href="css/app.css">-->
 	</head>
 	<body ng-app="todoApp" ng-controller="TodoController">
 		<section class="todoapp">
 			<header class="header">
 				<h1>todos</h1>
-				<input class="new-todo" placeholder="What needs to be done?" autofocus>
+
+				<!-- 利用form表单的submit事件，敲回车触发 -->
+				<form ng-submit="addTodo()">
+					<input class="new-todo" placeholder="What needs to be done?" autofocus ng-model="taskName">
+				</form>
 			</header>
 			<!-- This section should be hidden by default and shown when there are todos -->
 			<section class="main">
